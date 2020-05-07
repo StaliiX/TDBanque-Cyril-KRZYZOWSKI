@@ -47,8 +47,8 @@ public class Main {
 				switch(entreeUtilisateur) {
 				case "1" :
 					bonneEntree=true;
-					System.out.println("Veuillez entrer votre nom :");
-					entreeUtilisateur = reader.readLine();
+					System.out.println("Veuillez entrer votre nom :");  //Pas vraiment complet, il aurait fallu demander l'adresse également pour bien remplir les champs du client et également faire quelque
+					entreeUtilisateur = reader.readLine();				//chose pour le solde au départ du compte.
 					banque.ouvertureCompte(entreeUtilisateur);
 					break;
 				case "2" :

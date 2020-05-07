@@ -41,7 +41,7 @@ public class Banque {
 	public void ouvertureCompte(String nomClient) throws SQLException{
 		CompteAvecDecouvert compte = new CompteAvecDecouvert();
 		compte = (CompteAvecDecouvert) DaoCompte.readLast();
-		Client client = new Client();
+		Client client = new Client(); //j'utilise le constructeur vide car on a pas l'adresse et j'ajoute le nom plus tard
 		client = DaoClient.readLast(); //On récupère le dernier numéro de comtpe et le dernier numéro de client
 		
 		String[] idClientPasSplit = client.getId().split("o"); //On split la chaine de l'id au "o" pour pouvoir ne récupérer que le nombre après
@@ -54,8 +54,10 @@ public class Banque {
 		
 		int idC = Integer.parseInt(idCompte) + 1; //On le transforme en int et on y ajoute + 1 pour le nouveau compte
 		
+		client.setNom(nomClient);
 		client.setId("clientNumero"+id);
 		compte.setIDCompte("compteNumero"+id);
+		compte.setIDClient(client.getId());
 		
 		DaoCompte.create(compte);
 		DaoClient.create(client); //Création du compte et du client avec un numéro supérieur de 1 dans leur id comparé au dernier réalisé

@@ -22,6 +22,10 @@ public class Client {
 		return numeroClient;
 	}
 	
+	public void setNom(String c) {
+		this.nom = c;
+	}
+	
 	public String getAdresse() {
 		return adresse;
 	}
